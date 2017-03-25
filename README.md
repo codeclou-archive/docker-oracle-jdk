@@ -1,6 +1,6 @@
 # docker-oracle-jdk
 
-[![](https://codeclou.github.io/doc/badges/generated/docker-image-size-323.svg?v2)](https://hub.docker.com/r/codeclou/docker-oracle-jdk/tags/) [![](https://codeclou.github.io/doc/badges/generated/docker-from-alpine-3.5.svg)](https://alpinelinux.org/) [![](https://codeclou.github.io/doc/badges/generated/docker-run-as-non-root.svg)](https://docs.docker.com/engine/reference/builder/#/user)
+[![](https://codeclou.github.io/doc/badges/generated/docker-image-size-250.svg?v2)](https://hub.docker.com/r/codeclou/docker-oracle-jdk/tags/) [![](https://codeclou.github.io/doc/badges/generated/docker-from-alpine-3.5.svg)](https://alpinelinux.org/) [![](https://codeclou.github.io/doc/badges/generated/docker-run-as-non-root.svg)](https://docs.docker.com/engine/reference/builder/#/user)
 
 Base Docker-Image that includes [Oracle Java 8 JDK](https://www.oracle.com/java/) and [glibc](https://github.com/sgerrand/alpine-pkg-glibc) based on [Alpine Linux](https://alpinelinux.org/).
 
