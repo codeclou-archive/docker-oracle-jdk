@@ -2,7 +2,8 @@ FROM alpine:3.5
 
 ENV JAVA_VMAJOR 8
 ENV JAVA_VMINOR 121
-ENV JAVA_SHA512 81b312545da41aca5df3871bdd05ea88ffc24776d5876df1e81d88bdb90e09ec09e898d30cc4d75fb6894827537961211a414ef1e03054f007a69b13ed761f5d
+ENV JAVA_SHA512 df5d90a87fff6f71246aab1e63412a0b8d50207784da939fdb09ab547a469d121c6c74a7849628fb4d4f3596658eef31fad4026598862f1a5637a15b37b44648
+ENV JAVA_DOHASH e9e7ea248e2c4826b92b3f075a80e441
 
 ENV GLIBC_VERSN 2.23-r3
 ENV GLIBC_SH512 f9aa7e0bdc71fb560f99d6f447c73b5796a0ccf084e625feddbdc235e32ca722504f2e72be89fed954f6bfda3e10ed107952ae1bd5b6e1b2c6993479ff286a20
@@ -17,6 +18,7 @@ RUN apk add --no-cache \
             curl \
             gzip \
             tar && \
+    mkdir /opt/ && \
     echo "=== INSTALLING GLIBC =========================" && \
     echo "${GLIBC_SH512}  /opt/glibc-${GLIBC_VERSN}.apk" > /opt/glibc-${GLIBC_VERSN}.apk.sha512 && \
     curl -jkSL -o /opt/glibc-${GLIBC_VERSN}.apk \
@@ -26,7 +28,7 @@ RUN apk add --no-cache \
     echo "=== INSTALLING ORACLE JDK ====================" && \
     echo "${JAVA_SHA512}  /opt/jdk-${JAVA_VMAJOR}u${JAVA_VMINOR}-linux-x64.tar.gz" > /opt/jdk-${JAVA_VMAJOR}u${JAVA_VMINOR}-linux-x64.tar.gz.sha512 && \
     curl -jkSLH "Cookie: oraclelicense=accept-securebackup-cookie" -o /opt/jdk-${JAVA_VMAJOR}u${JAVA_VMINOR}-linux-x64.tar.gz \
-         http://download.oracle.com/otn-pub/java/jdk/${JAVA_VMAJOR}u${JAVA_VMINOR}-b14/jdk-${JAVA_VMAJOR}u${JAVA_VMINOR}-linux-x64.tar.gz && \
+         http://download.oracle.com/otn-pub/java/jdk/${JAVA_VMAJOR}u${JAVA_VMINOR}-b13/${JAVA_DOHASH}/jdk-${JAVA_VMAJOR}u${JAVA_VMINOR}-linux-x64.tar.gz && \
     sha512sum -c /opt/jdk-${JAVA_VMAJOR}u${JAVA_VMINOR}-linux-x64.tar.gz.sha512 && \
 
 #
