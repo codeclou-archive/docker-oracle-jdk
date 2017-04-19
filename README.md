@@ -20,7 +20,6 @@ FROM codeclou/docker-oracle-jdk:8u131
 FROM codeclou/docker-oracle-jdk:8u131-slim
 ```
 
-
 -----
 
 &nbsp;
