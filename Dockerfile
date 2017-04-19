@@ -1,4 +1,4 @@
-FROM codeclou/docker-alpine-glibc:2.25-r0
+FROM codeclou/docker-alpine-glibc:2.25-rc0
 
 ENV JAVA_VMAJOR 8
 ENV JAVA_VMINOR 131
@@ -6,17 +6,9 @@ ENV JAVA_SHA512 92c90f19f0184dfd78ac2b98d8ba0cbddcac3b9fb318ca9eeb6f8c1ce62b5b28
 ENV JAVA_DOHASH d54c1d3a095b4ff2b6607d096fa80163
 
 #
-# BASE PACKAGES + DOWNLOAD GLIBC & ORACLE JAVA
+# BASE PACKAGES + DOWNLOAD ORACLE JAVA
 #
-COPY ./vendor-keys/sgerrand.rsa.pub /etc/apk/keys/
-RUN apk add --no-cache \
-            bash \
-            ca-certificates \
-            curl \
-            gzip \
-            tar && \
-    mkdir /opt/ && \
-    echo "=== INSTALLING ORACLE JDK ====================" && \
+RUN echo "=== INSTALLING ORACLE JDK ====================" && \
     echo "${JAVA_SHA512}  /opt/jdk-${JAVA_VMAJOR}u${JAVA_VMINOR}-linux-x64.tar.gz" > /opt/jdk-${JAVA_VMAJOR}u${JAVA_VMINOR}-linux-x64.tar.gz.sha512 && \
     curl -jkSLH "Cookie: oraclelicense=accept-securebackup-cookie" -o /opt/jdk-${JAVA_VMAJOR}u${JAVA_VMINOR}-linux-x64.tar.gz \
          http://download.oracle.com/otn-pub/java/jdk/${JAVA_VMAJOR}u${JAVA_VMINOR}-b11/${JAVA_DOHASH}/jdk-${JAVA_VMAJOR}u${JAVA_VMINOR}-linux-x64.tar.gz && \
