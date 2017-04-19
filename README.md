@@ -14,10 +14,6 @@ Extend in your Dockerfile like so:
 
 ```
 FROM codeclou/docker-oracle-jdk:8u131
-
-# OR
-
-FROM codeclou/docker-oracle-jdk:8u131-slim
 ```
 
 -----
