@@ -1,12 +1,9 @@
-FROM alpine:3.5
+FROM codeclou/docker-alpine-glibc:2.25-r0
 
 ENV JAVA_VMAJOR 8
-ENV JAVA_VMINOR 121
-ENV JAVA_SHA512 df5d90a87fff6f71246aab1e63412a0b8d50207784da939fdb09ab547a469d121c6c74a7849628fb4d4f3596658eef31fad4026598862f1a5637a15b37b44648
-ENV JAVA_DOHASH e9e7ea248e2c4826b92b3f075a80e441
-
-ENV GLIBC_VERSN 2.23-r3
-ENV GLIBC_SH512 f9aa7e0bdc71fb560f99d6f447c73b5796a0ccf084e625feddbdc235e32ca722504f2e72be89fed954f6bfda3e10ed107952ae1bd5b6e1b2c6993479ff286a20
+ENV JAVA_VMINOR 131
+ENV JAVA_SHA512 92c90f19f0184dfd78ac2b98d8ba0cbddcac3b9fb318ca9eeb6f8c1ce62b5b286cae836edb04689ec62fc9ad6ebbfc0c48d0b107b716c24afe44a3ba41fb66f4
+ENV JAVA_DOHASH d54c1d3a095b4ff2b6607d096fa80163
 
 #
 # BASE PACKAGES + DOWNLOAD GLIBC & ORACLE JAVA
@@ -19,16 +16,10 @@ RUN apk add --no-cache \
             gzip \
             tar && \
     mkdir /opt/ && \
-    echo "=== INSTALLING GLIBC =========================" && \
-    echo "${GLIBC_SH512}  /opt/glibc-${GLIBC_VERSN}.apk" > /opt/glibc-${GLIBC_VERSN}.apk.sha512 && \
-    curl -jkSL -o /opt/glibc-${GLIBC_VERSN}.apk \
-        https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VERSN}/glibc-${GLIBC_VERSN}.apk && \
-    sha512sum -c /opt/glibc-${GLIBC_VERSN}.apk.sha512 && \
-    apk add /opt/glibc-${GLIBC_VERSN}.apk && \
     echo "=== INSTALLING ORACLE JDK ====================" && \
     echo "${JAVA_SHA512}  /opt/jdk-${JAVA_VMAJOR}u${JAVA_VMINOR}-linux-x64.tar.gz" > /opt/jdk-${JAVA_VMAJOR}u${JAVA_VMINOR}-linux-x64.tar.gz.sha512 && \
     curl -jkSLH "Cookie: oraclelicense=accept-securebackup-cookie" -o /opt/jdk-${JAVA_VMAJOR}u${JAVA_VMINOR}-linux-x64.tar.gz \
-         http://download.oracle.com/otn-pub/java/jdk/${JAVA_VMAJOR}u${JAVA_VMINOR}-b13/${JAVA_DOHASH}/jdk-${JAVA_VMAJOR}u${JAVA_VMINOR}-linux-x64.tar.gz && \
+         http://download.oracle.com/otn-pub/java/jdk/${JAVA_VMAJOR}u${JAVA_VMINOR}-b11/${JAVA_DOHASH}/jdk-${JAVA_VMAJOR}u${JAVA_VMINOR}-linux-x64.tar.gz && \
     sha512sum -c /opt/jdk-${JAVA_VMAJOR}u${JAVA_VMINOR}-linux-x64.tar.gz.sha512
 
 #
