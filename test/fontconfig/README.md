@@ -84,3 +84,14 @@ Error loading shared library libjvm.so: No such file or directory (needed by /op
 	libverify.so => /opt/jdk/jre/lib/amd64/libverify.so (0x7f18cb51a000)
 Error loading shared library libjvm.so: No such file or directory (needed by /opt/jdk/jre/lib/amd64/libverify.so)
 ```
+
+# Fix
+
+What seemed to be missing was correct linking:
+
+```
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/jdk/jre/lib/amd64/server/:/usr/lib/:/lib/
+
+# and
+apk add --no-cache libgcc
+```
