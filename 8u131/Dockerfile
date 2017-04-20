@@ -24,6 +24,15 @@ RUN tar -C /opt -xf /opt/jdk-${JAVA_VMAJOR}u${JAVA_VMINOR}-linux-x64.tar.gz && \
     rm -rf /tmp/* /var/cache/apk/*
 
 #
+# MAKE FONTCONFIG WORK - SEE: https://github.com/codeclou/docker-oracle-jdk/blob/master/test/fontconfig/README.md
+#
+ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/jdk/jre/lib/amd64/server/:/usr/lib/:/lib/
+RUN apk add --no-cache libgcc \
+                       ttf-dejavu \
+                       fontconfig \
+                       libgcc
+
+#
 # ENV
 #
 ENV JAVA_HOME /opt/jdk
