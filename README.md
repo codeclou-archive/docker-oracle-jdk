@@ -1,6 +1,6 @@
 # docker-oracle-jdk
 
-[![](https://codeclou.github.io/doc/badges/generated/docker-image-size-250.svg?v2)](https://hub.docker.com/r/codeclou/docker-oracle-jdk/tags/) [![](https://codeclou.github.io/doc/badges/generated/docker-from-alpine-3.5.svg)](https://alpinelinux.org/) [![](https://codeclou.github.io/doc/badges/generated/docker-run-as-non-root.svg)](https://docs.docker.com/engine/reference/builder/#/user)
+[![](https://codeclou.github.io/doc/badges/generated/docker-image-size-250.svg?v2)](https://hub.docker.com/r/codeclou/docker-oracle-jdk/tags/) [![](https://codeclou.github.io/doc/badges/generated/docker-from-alpine-3.7.svg)](https://alpinelinux.org/) [![](https://codeclou.github.io/doc/badges/generated/docker-run-as-non-root.svg)](https://docs.docker.com/engine/reference/builder/#/user)
 
 Base Docker image that includes [Oracle Java 8 JDK](https://www.oracle.com/java/) and [glibc](https://github.com/sgerrand/alpine-pkg-glibc) based on [Alpine Linux](https://alpinelinux.org/).
 
@@ -13,7 +13,7 @@ Base Docker image that includes [Oracle Java 8 JDK](https://www.oracle.com/java/
 Extend in your Dockerfile like so:
 
 ```
-FROM codeclou/docker-oracle-jdk:8u131
+FROM codeclou/docker-oracle-jdk:8u152
 ```
 
 -----
@@ -28,7 +28,7 @@ FROM codeclou/docker-oracle-jdk:8u131
  * **Docker**
    * Docker and the Docker logo are trademarks or registered [trademarks of Docker](https://www.docker.com/trademark-guidelines), Inc. in the United States and/or other countries. Docker, Inc. and other parties may also have trademark rights in other terms used herein.
    * Please check yourself for corresponding Licenses and Terms of Use at [www.docker.com](https://www.docker.com/).
-   
+
 -----
 
 &nbsp;
